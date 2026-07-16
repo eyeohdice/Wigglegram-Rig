@@ -1,6 +1,7 @@
 # 🌀 Wiggle Rig
 
-A browser-based bullet-time GIF maker for 3D Gaussian Splats. Load a splat, frame your shot, and export a looping wigglegram — all client-side, no install, no server.
+A browser-based Wigglegram GIF maker for 3D Gaussian Splats. 
+Load a splat, frame your shot, and export a looping wigglegram. **All client-side, no install, no server.**
 
 **[→ Open the app](https://eyeohdice.github.io/Wigglegram-Rig/)**
 
@@ -12,13 +13,13 @@ A browser-based bullet-time GIF maker for 3D Gaussian Splats. Load a splat, fram
 
 ## Get a splat first
 
-This tool renders `.ply` 3D Gaussian Splats — it doesn't generate them. If you don't have one yet, make one for free here:
+This tool renders `.ply` 3D Gaussian Splats as it doesn't generate them. If you don't have one yet, make one for free here:
 
 **[ml-sharp 3D Viewer (Hugging Face)](https://huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer)**
 
 Upload a photo, let it process, then download the `.ply` it produces. That's your input file for Wiggle Rig.
 
-> Front view in Wiggle Rig is pre-tuned for these exports specifically — they use OpenCV-style axes (Y-down), and the app corrects for that automatically.
+> Front view in Wiggle Rig is pre-tuned for these exports specifically since they use OpenCV-style axes (Y-down), and the app corrects for that automatically.
 
 ## What it does
 
