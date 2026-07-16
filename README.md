@@ -40,4 +40,4 @@ Single `index.html`. Three.js (r128, via CDN) for rendering, a hand-rolled aniso
 
 ---
 
-Made for the bullet-time era of AI photography. Wiggle responsibly.
+Wiggle responsibly.
