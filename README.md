@@ -1,6 +1,6 @@
 # Synth Wiggle
 
-Turn a single photo — or a 3D Gaussian splat — into an animated wigglegram. Runs entirely in the browser.
+Turn a single photo into an animated wigglegram. Runs entirely in the browser with no access or storage of your data.
 
 ![status](https://img.shields.io/badge/status-active-black) ![license](https://img.shields.io/badge/license-MIT-black)
 
@@ -15,7 +15,7 @@ Turn a single photo — or a 3D Gaussian splat — into an animated wigglegram. 
 
 ## Using it
 
-1. Open `synth-wiggle.html` in a browser (or serve it — some features need a real origin, not `file://`).
+1. Download and Open `index.html` in a browser.
 2. Upload a source image.
 3. Either let it auto-estimate depth, upload your own depth map, or upload a `.ply` splat.
 4. Tweak motion / depth / splat / output settings on the right.
@@ -28,7 +28,6 @@ Synth Wiggle doesn't generate splats itself — bring your own `.ply`, made with
 - **[sharp-onnx-webgpu.vercel.app](https://sharp-onnx-webgpu.vercel.app/)** — runs ml-sharp fully client-side via WebGPU. Upload a photo, download the `.ply`.
 - **[huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer](https://huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer)** — hosted Space, same idea, also lets you preview the splat before exporting.
 
-For local/batch generation, there's also a companion script (`wigglegram-companion.py`) — run it alongside the app and Synth Wiggle will detect it automatically, adding a "Generate Splat" button and swapping in higher-quality DA3 depth.
 
 ## Stack
 
