@@ -1,49 +1,35 @@
-# 🌀 Wiggle Rig
+# Synth Wiggle
 
-A browser-based Wigglegram GIF maker for 3D Gaussian Splats. 
-Load a splat, frame your shot, and export a looping wigglegram. **All client-side, no install, no server.**
+Turn a single photo — or a 3D Gaussian splat — into an animated wigglegram. Runs entirely in the browser.
 
-**[→ Open the app](https://eyeohdice.github.io/Wigglegram-Rig/)**
-
-![status](https://img.shields.io/badge/stack-three.js%20%2B%20vanilla%20JS-black) ![status](https://img.shields.io/badge/server-none%2C%20100%25%20client--side-ff4419)
-
-![Wiggle Rig demo](assets/demo.gif)
-
----
-
-## Get a splat first
-
-This tool renders `.ply` 3D Gaussian Splats as it doesn't generate them. If you don't have one yet, make one for free here:
-
-**[ml-sharp 3D Viewer (Hugging Face)](https://huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer)**
-
-Upload a photo, let it process, then download the `.ply` it produces. That's your input file for Wiggle Rig.
-
-> Front view in Wiggle Rig is pre-tuned for these exports specifically since they use OpenCV-style axes (Y-down), and the app corrects for that automatically.
+![status](https://img.shields.io/badge/status-active-black) ![license](https://img.shields.io/badge/license-MIT-black)
 
 ## What it does
 
-1. **Load** your `.ply` — drag and drop, or use the panel.
-2. **Frame the shot** — snap to a Quick View (Front/Right/Back/Left/Top/Bottom) on the compass dial, then fine-drag to taste. Scroll to zoom.
-3. **Set a rotation center** *(optional)* — click any point on the splat to make it the pivot the camera arcs around, instead of the model's center.
-4. **Crop** *(optional)* — turn on Crop, pick a ratio (1:1, 4:5, 9:16, 16:9, or freeform), drag the box.
-5. **Shoot** — hit the shutter. It sweeps a small arc around your framing, captures every frame, and encodes a ping-pong bullet-time GIF right in your browser.
+- **Image → depth → parallax.** Upload a photo, get an automatic depth estimate (Depth Anything V2, in-browser), and generate a looping GIF or video with orbit / parallax / warp motion.
+- **Splat → 3D orbit.** Upload a `.ply` Gaussian splat instead, and Synth Wiggle drives a real 3D camera sweep around it — sharper, more convincing parallax than a 2D depth map can fake.
+- **Click-to-set pivot.** Click anywhere on a loaded splat to re-center the orbit on that point.
+- **Unlock rotate.** Free-drag around a splat to find your framing, then lock it back in for export.
+- **Own depth map.** Supply a custom grayscale depth image instead of the automatic estimate.
+- **Export GIF or MP4/WebM**, at whatever resolution you want.
 
-## Privacy
+## Using it
 
-- **Everything runs locally** — your splat, your photo, your GIF never leave your machine.
+1. Open `synth-wiggle.html` in a browser (or serve it — some features need a real origin, not `file://`).
+2. Upload a source image.
+3. Either let it auto-estimate depth, upload your own depth map, or upload a `.ply` splat.
+4. Tweak motion / depth / splat / output settings on the right.
+5. Hit **Generate**, download the result.
+
+## Where to make a splat
+
+Synth Wiggle doesn't generate splats itself — bring your own `.ply`, made with [ml-sharp](https://github.com/apple/ml-sharp) (Apple's single-image → 3D Gaussian splat model). Two easy ways to make one without installing anything:
+
+- **[sharp-onnx-webgpu.vercel.app](https://sharp-onnx-webgpu.vercel.app/)** — runs ml-sharp fully client-side via WebGPU. Upload a photo, download the `.ply`.
+- **[huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer](https://huggingface.co/spaces/notaneimu/ml-sharp-3d-viewer)** — hosted Space, same idea, also lets you preview the splat before exporting.
+
+For local/batch generation, there's also a companion script (`wigglegram-companion.py`) — run it alongside the app and Synth Wiggle will detect it automatically, adding a "Generate Splat" button and swapping in higher-quality DA3 depth.
 
 ## Stack
 
-Single `index.html`. Three.js (r128, via CDN) for rendering, a hand-rolled anisotropic Gaussian splat shader, and an inlined GIF encoder ([omggif](https://github.com/deanm/omggif)). No build step, no dependencies to install — just open the file or visit the Pages link.
-
----
-
-Wiggle Responsibly.
-<pre>
- ____  _  _  ____     _____  _   _     ____  ____  ___  ____ 
-( ___)( \/ )( ___)___(  _  )( )_( )___(  _ \(_  _)/ __)( ___)
- )__)  \  /  )__)(___))(_)(  ) _ ((___))(_) )_)(_( (__  )__) 
-(____) (__) (____)   (_____)(_) (_)   (____/(____)\___)(____)
-</pre>
-
+Three.js, `@mkkellogg/gaussian-splats-3d`, Tweakpane, `gif.js`, and `@huggingface/transformers` (in-browser depth estimation) — no build step, no backend required.
