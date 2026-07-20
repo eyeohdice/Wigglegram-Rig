@@ -4,6 +4,11 @@ Turn a single photo into an animated wigglegram. Runs entirely in the browser wi
 
 ![status](https://img.shields.io/badge/status-active-black) ![license](https://img.shields.io/badge/license-MIT-black)
 
+
+![Wiggle Rig demo](assets/demo.gif)
+
+---
+
 ## What it does
 
 - **Image → depth → parallax.** Upload a photo, get an automatic depth estimate (Depth Anything V2, in-browser), and generate a looping GIF or video with orbit / parallax / warp motion.
