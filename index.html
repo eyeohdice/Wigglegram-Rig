@@ -82,6 +82,22 @@
   }
   .model-tag strong { color: var(--ink); font-weight: 600; }
 
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .logo-badge {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+  }
+
   .ruler {
     height: 7px;
     margin-bottom: 1.75rem;
@@ -405,7 +421,10 @@
 
 <header>
   <div class="wordmark">SYNTH WIGGLE</div>
-  <div class="model-tag">MODEL <strong>SW&ndash;01</strong><br>IMAGE &rarr; MOTION</div>
+  <div class="header-right">
+    <div class="model-tag">MODEL <strong>SW&ndash;01</strong><br>IMAGE &rarr; MOTION</div>
+    <img class="logo-badge" src="./assets/halftone-press_riso.svg" alt="logo">
+  </div>
 </header>
 <div class="ruler" aria-hidden="true"></div>
 
