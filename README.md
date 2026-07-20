@@ -6,6 +6,7 @@ Turn a single photo into an animated wigglegram. Runs entirely in the browser wi
 
 
 ![Wiggle Rig demo](assets/demo.gif)
+
 https://eyeohdice.github.io/Wigglegram-Synthetic/
 ---
 
